@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import { FaPhoneAlt } from "react-icons/fa";
-import { FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
+// import { FaFacebookF } from "react-icons/fa";
+// import { FaXTwitter } from "react-icons/fa6";
+// import { FaLinkedinIn } from "react-icons/fa";
+// import { FaInstagram } from "react-icons/fa";
+// import { FaTiktok } from "react-icons/fa";
 import { FaBars } from "react-icons/fa";
 import { FaTimes } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -17,11 +17,12 @@ import skytop from "../assets/Image/skytop log.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
+  { name: "About", path: "/about" },
   { name: "Program", path: "/programs" },
+    { name: "Teams", path: "/teams" },
   { name: "Gallery", path: "/gallery" },
-  { name: "News & Media", path: "/news" },
-  { name: "Contact Us", path: "/contacts" },
+  { name: "Blogs", path: "/blogs" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
 const Navbar = () => {
@@ -32,7 +33,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full bg-white shadow z-50 ">
       {/* Top Bar */}
-      <div className="bg-blue-500 text-white px-4 flex flex-col md:flex-row md:justify-between items-center text-center md:text-left">
+      <div className="bg-blue-500 text-white px-4 py-3 flex flex-col md:flex-row md:justify-between items-center text-center md:text-left">
         <div className="lg:flex items-center flex gap-2 mt-3">
           <FaPhoneAlt />
           <span>9865616815 </span>
@@ -42,22 +43,10 @@ const Navbar = () => {
       
 
 
-        <div className="flex items-center lg:gap-3  lg:p-2 ">
-          <a href="https://www.facebook.com/profile.php?id=61558281991316" className="">
-            <FaFacebookF className="  p-2 text-4xl" />
-          </a>
-          <a href="#" className="">
-            <FaXTwitter className=" p-2 text-4xl" />
-          </a>
-          <a href="https://www.linkedin.com/company/skytop-academy/posts/?feedView=all" className="">
-            <FaLinkedinIn className=" p-2 text-4xl" />
-          </a>
-          <a href="#" className="">
-            <FaInstagram className=" p-2 text-4xl" />
-          </a>
-          <a href="#" className="">
-            <FaTiktok className=" p-2 text-4xl" />
-          </a>
+        <div className="hidden lg:flex items-center gap-3 p-2  ">
+       
+          <Link to="/login" >Login</Link>
+          <Link to="/signup" >SignUp</Link>
         </div>
       </div>
 
@@ -107,8 +96,18 @@ const Navbar = () => {
                 {item.name}
               
               </Link>
+              
             ))
           }
+
+          
+
+        <div className="flex items-center justify-center gap-3 p-2  ">
+       
+          <Link className=" bg-sky-500 px-3 py-1 text-white font-semibold rounded-md" to="/login" >Login</Link>
+          <Link className=" bg-sky-500 px-3 py-1 text-white font-semibold rounded-md" to="/signup" >SignUp</Link>
+        </div>
+          
         </div>
       )}
     </div>

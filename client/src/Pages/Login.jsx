@@ -1,11 +1,14 @@
-import React from "react";
+import "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 mt-[100px]">
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-sm w-full">
         <h2 className="text-2xl font-bold text-center mb-4">Log In</h2>
-        <p className="text-gray-600 text-center mb-6">Sign in to access your account!</p>
+        <p className="text-gray-600 text-center mb-6">
+          Sign in to access your account!
+        </p>
         <form>
           <div className="mb-4">
             <label
@@ -35,10 +38,7 @@ const Login = () => {
               className="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             <div className="text-right mt-1">
-              <a
-                href="#"
-                className="text-blue-500 text-sm hover:underline"
-              >
+              <a href="#" className="text-blue-500 text-sm hover:underline">
                 Forgot password?
               </a>
             </div>
@@ -51,13 +51,13 @@ const Login = () => {
           </button>
         </form>
         <p className="text-center text-sm text-gray-600 mt-4">
-          Don't have an account yet?{" "}
-          <a
-            href="#"
+          Don&apos;t have an account yet?{""}
+          <Link
+            to="/signup"
             className="text-blue-500 font-medium hover:underline"
           >
-            Sign up.
-          </a>
+            Sign Up
+          </Link>
         </p>
       </div>
     </div>
