@@ -1,27 +1,32 @@
 import express from 'express'
 import dotenv from "dotenv"
-import mongoose from 'mongoose'
-const app=express()
-const PORT=process.env.PORT
-dotenv.config()
+import cookieParser from "cookie-parser";
+import userRouter from '../server/routes/user.routes.js'
+import { databaseConnection } from './config/db.js';
+
+
+dotenv.config();
+
+const app=express();
+// const port=process.env.PORT;
+const port =3001
+
+app.use(express.json())
+app.use(cookieParser())
 
 
 // mongodb connection
-  try {
-  await mongoose.connect(process.env.MONGODB_URL)
-  console.log("Mongodb connection successfully");
-  
-} catch (error) {
-  console.log("mongodb failed",error);
-  
-}
+await databaseConnection()
 
-app.get('/',(req,res)=>{
-  res.send("hello")
+app.use("/api/v1/user",userRouter)
+
+app.get('/', (req, res) => {
+  res.send('Hello World')
+
+  
 })
 
-
-app.listen(PORT,()=>{
-  console.log(`App is running at ${PORT}`);
+app.listen(port,()=>{
+  console.log(`App is running at ${port}`)
   
 })
